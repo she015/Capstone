@@ -1,0 +1,10 @@
+
+u
+java:S1192"FDefine a constant instead of duplicating this literal "error" 3 times.(Ø›åËHéRCRITICALZ
+CODE_SMELL
+d	java:S106"9Replace this use of System.out or System.err by a logger.(ý„Ž¤HíRMAJORZ
+CODE_SMELL
+i	java:S106"9Replace this use of System.out or System.err by a logger.(ÙÖ‰¯øÿÿÿÿHîRMAJORZ
+CODE_SMELL
+i	java:S1068"9Replace this use of System.out or System.err by a logger.(Ìœí©øÿÿÿÿHïRMAJORZ
+CODE_SMELL

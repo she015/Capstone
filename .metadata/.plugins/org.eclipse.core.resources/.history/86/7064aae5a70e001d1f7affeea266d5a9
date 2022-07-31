@@ -1,0 +1,43 @@
+server.port=8084
+server.error.whitelabel.enabled=false
+
+# MYSQL DATABASE CONFIG
+spring.datasource.url=jdbc:mysql://localhost:3306/retail_banking
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.database-platform=oorg.hibernate.dialect 
+
+
+
+# EXTERNAL MICROSERVICE INFO
+#Customer
+customer.microservice.name=customer-microservice
+customer.microservice.create.path=/createCustomer
+customer.microservice.getDetails.path=/getCustomerDetails
+customer.microservice.getdetailsbyfirstname.path = /getCustomerDetailsByFirstName
+customer.microservice.getallcustomer.path=/getAllCustomerDetails
+
+# Transaction
+transaction.microservice.name=transaction-microservice
+transaction.microservice.deposit.path=/deposit/{accountId}
+transaction.microservice.withdraw.path=/withdraw/{accountId}
+transaction.microservice.transfer.path=/transfer/{accountId}
+transaction.microservice.transactions.path=/getTransaction/{customerId}
+
+# Account 
+account.microservice.name=account-microservice
+account.microservice.getaccountbyno=/getAccountNo/{accountNo}
+account.microservice.getaccountstatements=/getAccountStatement/{accountId}/{startDate}/{endDate}
+
+# SECURITY
+security.microservice.name=security-role-jwt-microservice
+security.microservice.register.path=/users/register
+security.microservice.authenticate.path=/users/authenticate
+
+# Eureka
+ spring.application.name=bank-portal
+ eureka.client.serviceUrl.defaultZone  = http://localhost:8085/eureka
+ eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true

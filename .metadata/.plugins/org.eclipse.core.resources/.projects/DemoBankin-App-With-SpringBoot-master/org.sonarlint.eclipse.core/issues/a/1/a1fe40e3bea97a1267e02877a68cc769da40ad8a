@@ -1,0 +1,20 @@
+
+•
+java:S1192-"aDefine a constant instead of duplicating this literal "            text-align: center;
+" 3 times.(˜¿¢¾øÿÿÿÿHæRCRITICALZ
+CODE_SMELL
+z
+java:S1192"KDefine a constant instead of duplicating this literal "        }
+" 8 times.(ÚÜƒHêRCRITICALZ
+CODE_SMELL
+
+java:S1192%"\Define a constant instead of duplicating this literal "            padding: 15px;
+" 3 times.(³‹ë‡ıÿÿÿÿHóRCRITICALZ
+CODE_SMELL
+‘
+java:S1488
+"eImmediately return this expression instead of assigning it to the temporary variable "emailTemplate".(Ñ®†àH÷RMINORZ
+CODE_SMELL
+k
+java:S1118":Add a private constructor to hide the implicit public one.(ºõÂ°øÿÿÿÿHúRMAJORZ
+CODE_SMELL

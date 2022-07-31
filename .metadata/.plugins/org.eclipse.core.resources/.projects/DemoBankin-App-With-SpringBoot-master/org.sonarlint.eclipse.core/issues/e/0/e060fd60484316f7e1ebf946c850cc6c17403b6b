@@ -1,0 +1,53 @@
+
+ƒ	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á•ß›8½Ñç¡¤0HİRMINORZ
+CODE_SMELL
+ƒ	java:S117("QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éŒ·8½Ñç¡¤0HŞRMINORZ
+CODE_SMELL
+]
+java:S1135>"2Complete the task associated to this TODO comment.(£ĞØòHÑRINFOZ
+CODE_SMELL
+]
+java:S11355"2Complete the task associated to this TODO comment.(ÖïÎHÏRINFOZ
+CODE_SMELL
+b
+java:S1135N"2Complete the task associated to this TODO comment.(¼·ÂºøÿÿÿÿH×RINFOZ
+CODE_SMELL
+ˆ	java:S117F"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é´“Îÿÿÿÿÿ8½Ñç¡¤0HàRMINORZ
+CODE_SMELL
+~
+java:S4684%"@Replace this persistent entity with a simple POJO or DTO object.(”Ì£Êıÿÿÿÿ8½Ñç¡¤0HâRCRITICALZVULNERABILITY
+b
+java:S1135;"2Complete the task associated to this TODO comment.(‰øê…ûÿÿÿÿHĞRINFOZ
+CODE_SMELL
+]
+java:S1135C"2Complete the task associated to this TODO comment.(ı‰–éHÓRINFOZ
+CODE_SMELL
+b
+java:S1135K"2Complete the task associated to this TODO comment.(çìµ¾ùÿÿÿÿHÖRINFOZ
+CODE_SMELL
+k	java:S106"9Replace this use of System.out or System.err by a logger.(ä½Ñ€8½Ñç¡¤0HáRMAJORZ
+CODE_SMELL
+R
+java:S2119?"Save and re-use this "Random".(šŸ«íøÿÿÿÿ8½Ñç¡¤0HãRCRITICALZBUG
+ƒ	java:S117+"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ÓÇì8½Ñç¡¤0HßRMINORZ
+CODE_SMELL
+\
+java:S1135H"2Complete the task associated to this TODO comment.(œÀæTHÕRINFOZ
+CODE_SMELL
+]
+java:S1135E"2Complete the task associated to this TODO comment.(±Õ¶HÔRINFOZ
+CODE_SMELL
+p
+java:S1854D"=Remove this useless assignment to local variable "emailBody".(å›•8î—é¡¤0HîRMAJORZ
+CODE_SMELL
+©
+java:S1130+"vRemove the declaration of thrown exception 'javax.mail.MessagingException', as it cannot be thrown from method's body.(­ÓÇì8î—é¡¤0HïRMINORZ
+CODE_SMELL
+a
+java:S1481D".Remove this unused "emailBody" local variable.(å›•8î—é¡¤0HñRMINORZ
+CODE_SMELL
+n	java:S125L"<This block of commented-out lines of code should be removed.(ÌÇÊ»8î—é¡¤0HóRMAJORZ
+CODE_SMELL
+|
+java:S1128"IRemove this unused import 'com.demo_bank_v1.mailMessenger.MailMessenger'.(ù‡Æ¡8î—é¡¤0HôRMINORZ
+CODE_SMELL

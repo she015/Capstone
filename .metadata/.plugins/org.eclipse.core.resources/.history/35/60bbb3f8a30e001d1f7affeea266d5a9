@@ -1,0 +1,31 @@
+server.port=8082
+
+# MYSQL DATABASE CONFIG
+spring.datasource.url=jdbc:mysql://localhost:3306/retail_banking
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.username=root
+spring.datasource.password=root
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+
+# EXTERNAL MICROSERVICE
+microservice.rules.name = rules-microservice
+microservice.account.name = account-microservice
+microservice.customer.name = customer-microservice
+
+# URL CONSTANTS
+url.evaluate.rules = /evaluateMinBal
+url.charges.rules = /getServicesCharges
+url.get.account = /getAccount/{accountId}
+url.get.customerAccount = /getCustomerAccounts/{customerId}
+url.withdraw.account = /withdraw/{accountId}/{amount}
+url.transfer.account = /transfer/{sourceAccountId}/{destAccountID}/{amount}
+url.deposit.account = /deposit/{accountId}/{amount}
+url.details.customer = /getCustomerDetails
+
+# Eureka
+ spring.application.name=transaction-microservice
+ eureka.client.serviceUrl.defaultZone  = http://localhost:8085/eureka
+ eureka.client.registerWithEureka=true
+eureka.client.fetchRegistry=true

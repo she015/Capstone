@@ -1,0 +1,24 @@
+
+Š
+java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(±ÊÌŸÿÿÿÿÿHªRMINORZ
+CODE_SMELL
+…
+java:S2293."YReplace the type specification in this constructor call with the diamond operator ("<>").(ò™¯ÓH¬RMINORZ
+CODE_SMELL
+Š
+java:S22937"YReplace the type specification in this constructor call with the diamond operator ("<>").(ºËÄÛşÿÿÿÿH®RMINORZ
+CODE_SMELL
+Š
+java:S2293@"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦†™²üÿÿÿÿH°RMINORZ
+CODE_SMELL
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õÀØ½ıÿÿÿÿH²RMINORZ
+CODE_SMELL
+q
+java:S4684$"@Replace this persistent entity with a simple POJO or DTO object.(ä™«2H³RCRITICALZVULNERABILITY
+L
+java:S2129-" Remove this "String" constructor(ñŒİ“H´RMAJORZ
+CODE_SMELL
+i	java:S1065"9Replace this use of System.out or System.err by a logger.(µ‰¢ûÿÿÿÿHµRMAJORZ
+CODE_SMELL
+i	java:S106?"9Replace this use of System.out or System.err by a logger.(ö„öûÿÿÿÿH¶RMAJORZ
+CODE_SMELL

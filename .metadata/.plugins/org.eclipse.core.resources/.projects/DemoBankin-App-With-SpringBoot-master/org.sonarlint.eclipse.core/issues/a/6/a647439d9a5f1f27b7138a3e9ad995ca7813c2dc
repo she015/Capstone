@@ -1,0 +1,29 @@
+
+z
+java:S1192-"FDefine a constant instead of duplicating this literal "error" 5 times.(‡®‹ËúÿÿÿÿHÒRCRITICALZ
+CODE_SMELL
+z
+java:S1192"FDefine a constant instead of duplicating this literal "login" 4 times.(›•óœùÿÿÿÿHØRCRITICALZ
+CODE_SMELL
+i
+java:S2589,"8Remove this expression which always evaluates to "false"(•²ŸİøÿÿÿÿHİRMAJORZ
+CODE_SMELL
+i
+java:S2589,"8Remove this expression which always evaluates to "false"(•²ŸİøÿÿÿÿHàRMAJORZ
+CODE_SMELL
+d	java:S106"9Replace this use of System.out or System.err by a logger.(êø“äHãRMAJORZ
+CODE_SMELL
+b
+java:S1135+"2Complete the task associated to this TODO comment.(¡õÙƒıÿÿÿÿHäRINFOZ
+CODE_SMELL
+]
+java:S11351"2Complete the task associated to this TODO comment.(…¾†½HåRINFOZ
+CODE_SMELL
+b
+java:S1135E"2Complete the task associated to this TODO comment.(Ÿº½»øÿÿÿÿHæRINFOZ
+CODE_SMELL
+b
+java:S1135P"2Complete the task associated to this TODO comment.(Ö“”ûÿÿÿÿHçRINFOZ
+CODE_SMELL
+d
+java:S2441T":Make "User" serializable or don't store it in the session.(£™ÕàûÿÿÿÿHèRMAJORZBUG

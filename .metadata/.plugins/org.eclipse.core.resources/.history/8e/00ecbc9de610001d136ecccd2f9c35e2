@@ -1,0 +1,87 @@
+package com.sumit.playjava.controller;
+
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.sumit.playjava.model.Transaction;
+import com.sumit.playjava.model.UserAccount;
+
+@RestController
+public class TransactionController {
+	
+	
+	Transaction trans = new Transaction();
+	
+	UserAccount userAccount = new UserAccount();
+	
+	RestTemplate restTemplate = new RestTemplate();
+	
+	@RequestMapping("/save-transaction")
+	public String goToNewTransactionMicroservice(@RequestParam("accountno") int accountno, @RequestParam("toaccountnumber") int toaccountnumber, @RequestParam("transferamount") int transferamount, Model model) {
+		
+		//if(accountno != 0) {
+		
+		 restTemplate.getForObject("http://localhost:8082/transfer-money/"+accountno+"/"+toaccountnumber+"/"+transferamount+"", String.class);
+			 model.addAttribute("transferSuccess", "Successfully Transferred!");
+			 
+			 	userAccount.setAccountno(accountno);
+				int transfer = transferamount;
+				int bal = userAccount.getTotalbal();
+				System.out.println(bal);
+				int newbal = bal - transfer;
+				userAccount.setTotalbal(newbal);
+				System.out.println(newbal);
+				HttpHeaders header = new HttpHeaders();
+		        header.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		        
+		        HttpEntity<UserAccount> entitys = new HttpEntity<UserAccount>(userAccount, header);
+
+		        restTemplate.exchange("http://localhost:8082/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
+		//}else {
+			//model.addAttribute("transferError", "Error! Please Try Again!");
+		//}		
+		return restTemplate.getForObject("http://localhost:8080/transaction/", String.class);
+	}
+
+	/*@PutMapping("/update-balance")
+	public UserAccount updateUserAccount(@RequestBody UserAccount userAccount) {
+		
+		return transService.updateUserAccount(userAccount);
+		if(userAccount.getTotalBal()  > transferAmount && accountNo != null) {
+			int total = userAccount.getTotalBal() - transferAmount;
+			userAccount.setTotalBal(total);		
+			
+		}else {
+			return "Insuficient Balance";
+		}
+	}*/
+	
+	/*@GetMapping("/update")
+	public String update(){
+		userAccount.setAccountno(trans.getAccountno());
+		int transfer = trans.getTransferamount();
+		int bal = userAccount.getTotalbal();
+		int newbal = bal - transfer;
+		userAccount.setTotalbal(newbal);
+		HttpHeaders header = new HttpHeaders();
+        header.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        
+        HttpEntity<UserAccount> entitys = new HttpEntity<UserAccount>(userAccount, header);
+
+         restTemplate.exchange(
+           "http://localhost:8083/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
+			return "new-transaction";
+	}*/
+	
+	
+}

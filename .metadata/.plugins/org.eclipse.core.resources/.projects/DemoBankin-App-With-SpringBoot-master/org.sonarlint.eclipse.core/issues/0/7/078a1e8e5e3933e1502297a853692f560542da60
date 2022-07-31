@@ -1,0 +1,24 @@
+
+Š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü‘ÌÀúÿÿÿÿHÞRMINORZ
+CODE_SMELL
+z
+java:S2094
+"BRemove this empty class, write its code or make it an "interface".(ÒÀÆ¢ÿÿÿÿÿ8Šñ§¡¤0H´RMINORZ
+CODE_SMELL
+s	java:S125"<This block of commented-out lines of code should be removed.(Ü©Ïúüÿÿÿÿ8Šñ§¡¤0HµRMAJORZ
+CODE_SMELL
+w
+java:S1128"?Remove this unused import 'com.demo_bank_v1.config.MailConfig'.(ÈºÂøÿÿÿÿ8Šñ§¡¤0H¿RMINORZ
+CODE_SMELL
+€
+java:S1128"MRemove this unused import 'org.springframework.mail.javamail.JavaMailSender'.(ÕÃ›8Šñ§¡¤0HÁRMINORZ
+CODE_SMELL
+ˆ
+java:S1128"PRemove this unused import 'org.springframework.mail.javamail.MimeMessageHelper'.(Ö€”÷øÿÿÿÿ8Šñ§¡¤0HÃRMINORZ
+CODE_SMELL
+m
+java:S1128":Remove this unused import 'javax.mail.MessagingException'.(ÇîÞ8Šñ§¡¤0HÅRMINORZ
+CODE_SMELL
+t
+java:S1128"<Remove this unused import 'javax.mail.internet.MimeMessage'.(«ÀÔ€þÿÿÿÿ8Šñ§¡¤0HÇRMINORZ
+CODE_SMELL

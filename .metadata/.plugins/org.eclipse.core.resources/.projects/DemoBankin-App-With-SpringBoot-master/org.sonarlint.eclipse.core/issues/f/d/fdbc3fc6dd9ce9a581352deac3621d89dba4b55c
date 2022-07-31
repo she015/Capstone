@@ -1,0 +1,6 @@
+
+k
+java:S1118":Add a private constructor to hide the implicit public one.(žˆ‹ÔüÿÿÿÿHäRMAJORZ
+CODE_SMELL
+E
+java:S2119	"Save and re-use this "Random".(¼ÝÅfHåRCRITICALZBUG

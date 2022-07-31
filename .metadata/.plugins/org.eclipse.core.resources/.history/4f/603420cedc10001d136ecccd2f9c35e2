@@ -1,0 +1,192 @@
+package com.sumit.playjava.controller;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.sumit.playjava.model.Transaction;
+import com.sumit.playjava.model.User;
+import com.sumit.playjava.model.UserAccount;
+import com.sumit.playjava.repo.TransactionRepo;
+import com.sumit.playjava.repo.UserAccountRepo;
+import com.sumit.playjava.repo.UserRepo;
+import com.sumit.playjava.service.TransactionService;
+import com.sumit.playjava.service.UserAccountService;
+
+
+
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private UserRepo userRepo;
+	
+	//@Autowired
+	//private UserAccountRepo userAccountRepo;
+	
+	@Autowired
+	private UserAccountService userAccountService;
+	
+	@Autowired
+	private TransactionService transactionService;
+	
+	Transaction trans = new Transaction();
+	
+	UserAccount userAccount = new UserAccount();
+	/*
+	 * @Autowired UserAccount userAccount;
+	 */
+	RestTemplate restTemplate = new RestTemplate();
+	
+	int x;
+	
+	@RequestMapping("/")
+	public String checkMVC() {
+		return "login";
+		
+	}
+	
+	@RequestMapping("/login")
+	public String loginHomePage(@RequestParam("username") String userName,
+			@RequestParam("password") String password, Model model) {
+		User u = null;
+		User y = null;
+		try {
+			
+			u = userRepo.findByUsername(userName);
+			y = userRepo.findByPassword(password);
+
+		}catch(Exception e) {
+			model.addAttribute("error", "User is not valid");
+		}
+		if(u!=null && y!=null) {
+			
+			model.addAttribute("userName", userName);
+			model.addAttribute("password", password);
+			return "useraccount";
+		}
+		return "login";
+	}
+	
+	@RequestMapping("/register")
+	public String registerService() {
+		return "register";
+	}
+	
+	@RequestMapping("/set-user")
+	public String registerMicroservice(@RequestParam("username") String userName, @RequestParam("password1") String password1, @RequestParam("password2") String password2, Model model) {
+		System.out.println("Going to microservice from login microservice start!");
+		if(password1.equals(password2)) {
+			restTemplate.getForObject("http://localhost:8083/register-user/"+userName+"/"+password1+"", String.class);
+			 model.addAttribute("registerSuccess", "Successfull registered. Kindly login");
+		}else {
+			model.addAttribute("registrationError", "Passwords are not the same!");
+		}
+		System.out.println("Register microservice from login microservice end!");
+		return "login";
+	}
+	
+	@RequestMapping("/useraccount")
+	public ModelAndView home() {
+	    List<UserAccount> listUserAccount = userAccountService.listAll();
+	    ModelAndView mav = new ModelAndView("useraccount");
+	    mav.addObject("listUserAccount", listUserAccount);
+	    return mav;
+	}
+	@RequestMapping("/new")
+	public String newCustomerForm(Map<String, Object> model) {
+	    //UserAccount userAccount = new UserAccount();
+	    model.put("useraccount", userAccount);
+	    return "new_useraccount";
+	}
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String saveCustomer(@ModelAttribute("useraccount") UserAccount userAccount) {
+		userAccountService.save(userAccount);
+		x = userAccount.getTotalbal();
+	    return "redirect:/useraccount";
+	}
+	
+	@RequestMapping("/new-transaction")
+	public String goToNewTransaction() {
+		return "new-transaction";
+	}
+
+	
+	@RequestMapping("/save-transaction")
+	public String goToNewTransactionMicroservice(@RequestParam("accountno") int accountno, @RequestParam("toaccountnumber") int toaccountnumber, @RequestParam("transferamount") int transferamount, Model model) {
+		
+		//if(accountno != 0) {
+			
+		 restTemplate.getForObject("http://localhost:8082/transfer-money/"+accountno+"/"+toaccountnumber+"/"+transferamount+"", String.class);
+			 model.addAttribute("transferSuccess", "Successfully Transferred!");
+			 
+			 userAccount.setAccountno(accountno);
+				int transfer = transferamount;
+				int bal = x;
+				int newbal = bal - transfer;
+				userAccount.setTotalbal(newbal);
+				HttpHeaders header = new HttpHeaders();
+		        header.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		        
+		        HttpEntity<UserAccount> entitys = new HttpEntity<UserAccount>(userAccount, header);
+
+		        restTemplate.exchange("http://localhost:8082/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
+		         
+		         x = newbal;
+		//}else {
+			//model.addAttribute("transferError", "Error! Please Try Again!");
+		//}		
+		return "useraccount";
+	}
+
+	/*@PutMapping("/update-balance")
+	public UserAccount updateUserAccount(@RequestBody UserAccount userAccount) {
+		
+		return transService.updateUserAccount(userAccount);
+		if(userAccount.getTotalBal()  > transferAmount && accountNo != null) {
+			int total = userAccount.getTotalBal() - transferAmount;
+			userAccount.setTotalBal(total);		
+			
+		}else {
+			return "Insuficient Balance";
+		}
+	}*/
+	
+	/*@GetMapping("/update")
+	public String update(){
+		userAccount.setAccountno(trans.getAccountno());
+		int transfer = trans.getTransferamount();
+		int bal = userAccount.getTotalbal();
+		int newbal = bal - transfer;
+		userAccount.setTotalbal(newbal);
+		HttpHeaders header = new HttpHeaders();
+        header.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+        
+        HttpEntity<UserAccount> entitys = new HttpEntity<UserAccount>(userAccount, header);
+
+         restTemplate.exchange(
+           "http://localhost:8083/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
+			return "new-transaction";
+	}*/
+	
+	
+}
+
+	
