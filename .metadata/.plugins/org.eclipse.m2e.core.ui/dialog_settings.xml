@@ -2,16 +2,19 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\Capstone2\transaction-mvc"/>
+			<item value="D:\Capstone2\registration-mvc"/>
+			<item value="D:\Capstone2\login-mvc"/>
 			<item value="D:\Capstone2\Retail_Banking-master\Retail_Banking-master\EurekaServer"/>
 			<item value="D:\Capstone2\Retail_Banking-master"/>
 			<item value="D:\Capstone2\todo-management-spring-boot-master"/>
-			<item value="D:\Capstone2\login-mvc"/>
 			<item value="D:\Capstone2\OnlineBankingApplication-master\-Banking-Application-"/>
 			<item value="D:\Capstone2\DemoBankin-App-With-SpringBoot-master"/>
 			<item value="D:\Capstone2\boot-security-custom-login-page"/>
 			<item value="D:\Capstone2\MyApplication--SpringBoot-Login-and-Registration-youtube-master"/>
 		</list>
 		<list key="projectNameTemplate">
+			<item value="transaction-mvc"/>
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
 			<item value="[artifactId]-[version]"/>

@@ -21,8 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sumit.playjava.model.Transaction;
 import com.sumit.playjava.model.User;
 import com.sumit.playjava.model.UserAccount;
-import com.sumit.playjava.repo.TransactionRepo;
-import com.sumit.playjava.repo.UserAccountRepo;
 import com.sumit.playjava.repo.UserRepo;
 import com.sumit.playjava.service.TransactionService;
 import com.sumit.playjava.service.UserAccountService;
@@ -35,9 +33,6 @@ public class LoginController {
 	@Autowired
 	private UserRepo userRepo;
 	
-	//@Autowired
-	//private UserAccountRepo userAccountRepo;
-	
 	@Autowired
 	private UserAccountService userAccountService;
 	
@@ -47,9 +42,7 @@ public class LoginController {
 	Transaction trans = new Transaction();
 	
 	UserAccount userAccount = new UserAccount();
-	/*
-	 * @Autowired UserAccount userAccount;
-	 */
+	
 	RestTemplate restTemplate = new RestTemplate();
 	
 	int x;
@@ -109,7 +102,6 @@ public class LoginController {
 	}
 	@RequestMapping("/new")
 	public String newCustomerForm(Map<String, Object> model) {
-	    //UserAccount userAccount = new UserAccount();
 	    model.put("useraccount", userAccount);
 	    return "new_useraccount";
 	}
@@ -117,7 +109,6 @@ public class LoginController {
 	public String saveCustomer(@ModelAttribute("useraccount") UserAccount userAccount) {
 		userAccountService.save(userAccount);
 		x = userAccount.getTotalbal();
-		//userAccount.setTotalbal(userAccount.getTotalbal());
 	    return "redirect:/useraccount";
 	}
 	
@@ -138,12 +129,11 @@ public class LoginController {
 	@RequestMapping("/save-transaction")
 	public String goToNewTransactionMicroservice(@RequestParam("accountno") int accountno, @RequestParam("toaccountnumber") int toaccountnumber, @RequestParam("transferamount") int transferamount, Model model) {
 		
-		//if(accountno != 0) {
 			
 		 restTemplate.getForObject("http://localhost:8082/transfer-money/"+accountno+"/"+toaccountnumber+"/"+transferamount+"", String.class);
 			 model.addAttribute("transferSuccess", "Successfully Transferred!");
 			 
-			 userAccount.setAccountno(accountno);
+			 	userAccount.setAccountno(accountno);
 				int transfer = transferamount;
 				int bal = x;
 				int newbal = bal - transfer;
@@ -157,42 +147,9 @@ public class LoginController {
 		           "http://localhost:8082/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
 		         
 		         x = newbal;
-		//}else {
-			//model.addAttribute("transferError", "Error! Please Try Again!");
-		//}		
+		         
 		return "transaction";
 	}
-
-	/*@PutMapping("/update-balance")
-	public UserAccount updateUserAccount(@RequestBody UserAccount userAccount) {
-		
-		return transService.updateUserAccount(userAccount);
-		if(userAccount.getTotalBal()  > transferAmount && accountNo != null) {
-			int total = userAccount.getTotalBal() - transferAmount;
-			userAccount.setTotalBal(total);		
-			
-		}else {
-			return "Insuficient Balance";
-		}
-	}*/
-	
-	/*@GetMapping("/update")
-	public String update(){
-		userAccount.setAccountno(trans.getAccountno());
-		int transfer = trans.getTransferamount();
-		int bal = userAccount.getTotalbal();
-		int newbal = bal - transfer;
-		userAccount.setTotalbal(newbal);
-		HttpHeaders header = new HttpHeaders();
-        header.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-        
-        HttpEntity<UserAccount> entitys = new HttpEntity<UserAccount>(userAccount, header);
-
-         restTemplate.exchange(
-           "http://localhost:8083/update-balance", HttpMethod.PUT, entitys, String.class).getBody();
-			return "new-transaction";
-	}*/
-	
 	
 }
 
