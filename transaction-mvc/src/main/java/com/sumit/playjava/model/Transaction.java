@@ -20,7 +20,7 @@ public class Transaction {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int transactionId;
+	private Integer transactionId;
 	private int accountno;
 	private int toaccountnumber;
 	private int transferamount;

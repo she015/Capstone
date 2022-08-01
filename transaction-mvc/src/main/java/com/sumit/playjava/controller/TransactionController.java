@@ -25,7 +25,7 @@ public class TransactionController {
 	
 	Transaction u= new Transaction();
 	
-	@RequestMapping("/check-transfer")
+	@RequestMapping("/check-transer")
 	public String check() {
 		return "checked transfer!";
 	}
