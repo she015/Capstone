@@ -20,7 +20,14 @@ public class TransactionService {
 	public List<Transaction> listAll() {
 		 return (List<Transaction>) transactionRepo.findAll();
 	}
-	
+
+
+	public List<Transaction> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return (List<Transaction>) transactionRepo.findByUsername(username);
+	}
+
+
 	/*@Autowired
 	private UserAccountRepo userAccountRepo;
 	

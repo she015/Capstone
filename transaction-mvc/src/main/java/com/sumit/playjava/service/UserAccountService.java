@@ -21,8 +21,6 @@ public class UserAccountService {
 	public UserAccount updateUserAccount(UserAccount userAccount) {
 		UserAccount existingUser= userAccountRepo.findByAccountno(userAccount.getAccountno());
 		existingUser.setTotalbal(userAccount.getTotalbal());
-	
-		
 		return userAccountRepo.save(existingUser);
 	}
 	

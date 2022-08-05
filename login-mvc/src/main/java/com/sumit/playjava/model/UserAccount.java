@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 //import javax.persistence.GeneratedValue;
@@ -12,29 +13,34 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 //@Table(name="user_account")
 public class UserAccount {
 
-    
-   /* @GenericGenerator(name = "account_no", strategy = "com.sumit.playjava.model.AccountIdGenerator")
-    @GeneratedValue(generator = "account_no") 
-    @Column(columnDefinition = "varchar(22)")*/
-	@Id
-	   /* @GenericGenerator(name = "account_no", strategy = "com.sumit.playjava.model.AccountIdGenerator")
-	    @GeneratedValue(generator = "account_no") 
-	    @Column(columnDefinition = "varchar(22)")*/
-	    private int accountno;
+		@Id
+		@GenericGenerator(name = "accountno", strategy = "com.sumit.playjava.model.AccountIdGenerator")
+	    @GeneratedValue(generator = "accountno") 
+	    @Column(columnDefinition = "varchar(22)")
+	    private String accountno;
+		private String username;
 	    private String contactno;
 	    private int totalbal;
 	    @CreationTimestamp
 	    @Temporal(TemporalType.TIMESTAMP)
 	    private Date createdate;
-		public int getAccountno() {
+	    
+		public String getUsername() {
+			return username;
+		}
+		public void setUsername(String username) {
+			  this.username = username;
+		}
+		public String getAccountno() {
 			return accountno;
 		}
-		public void setAccountno(int accountno) {
+		public void setAccountno(String accountno) {
 			this.accountno = accountno;
 		}
 		public String getContactno() {
@@ -58,15 +64,16 @@ public class UserAccount {
 		public UserAccount() {
 		
 		}
-		public UserAccount(int accountno, String contactno, int totalbal, Date createdate) {
+		public UserAccount(String accountno, String username, String contactno, int totalbal, Date createdate) {
 			this.accountno = accountno;
+			this.username = username;
 			this.contactno = contactno;
 			this.totalbal = totalbal;
 			this.createdate = createdate;
 		}
 		@Override
 		public String toString() {
-			return "UserAccount [accountno=" + accountno + ", contactno=" + contactno + ", totalbal=" + totalbal
+			return "UserAccount [accountno=" + accountno +" ,username=" + username + ",contactno=" + contactno + ", totalbal=" + totalbal
 					+ ", createdate=" + createdate + "]";
 		}	
 }

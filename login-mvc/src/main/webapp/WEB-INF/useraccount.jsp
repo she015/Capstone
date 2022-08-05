@@ -57,6 +57,7 @@ h2 {
 		<thead>
 			<tr>
 				<th>ID</th>
+				<th>UserName</th>
 				<th>Contact No.</th>
 				<th>Total Balance</th>
 				<th>Date Created</th>
@@ -66,6 +67,7 @@ h2 {
 		<c:forEach items="${listUserAccount}" var="useraccount">
 		 <tr>
 			<td>${useraccount.accountno}</td>
+			<td>${useraccount.username}</td>
 			<td>${useraccount.contactno}</td>
             <td>${useraccount.totalbal}</td>
             <td>${useraccount.createdate}</td>
@@ -79,7 +81,6 @@ h2 {
                 <a href="/delete?id=${customer.id}">Delete</a>
             </td>-->
 <h5><a href="/new">New User</a></h5>
-
 <h5><a href="/transaction">Transfer Money</a></h5>
 </section>
 <script>

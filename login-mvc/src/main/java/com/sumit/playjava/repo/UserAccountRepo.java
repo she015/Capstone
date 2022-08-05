@@ -1,11 +1,15 @@
 package com.sumit.playjava.repo;
 
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.sumit.playjava.model.UserAccount;
 
-public interface UserAccountRepo extends JpaRepository<UserAccount, Integer>{
+public interface UserAccountRepo extends JpaRepository<UserAccount, String>{
+
+	List<UserAccount> findByUsername(String username);
 
 	//UserAccount findByAccountno(int accountno);
 

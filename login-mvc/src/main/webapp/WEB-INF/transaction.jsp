@@ -82,6 +82,8 @@ h2 {
                 <a href="/delete?id=${customer.id}">Delete</a>
             </td>-->
 <h5><a href ="/new-transaction">New Transaction</a></h5>
+<h5><a href="/useraccount">User's Balance</a></h5>
+<h5><a href="/deposit">Deposit</a></h5>
 </section>
 <script>
 (function(document) {

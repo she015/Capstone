@@ -1,4 +1,4 @@
-/*package com.sumit.playjava.model;
+package com.sumit.playjava.model;
 
 import java.io.Serializable;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ public class AccountIdGenerator implements IdentifierGenerator {
     try {
         Statement statement=connection.createStatement();
 
-        ResultSet rs=statement.executeQuery("select count(account_no) as Id from user_account");
+        ResultSet rs=statement.executeQuery("select count(accountno) as Id from user_account");
 
         if(rs.next())
         {
@@ -38,4 +38,4 @@ public class AccountIdGenerator implements IdentifierGenerator {
     return null;
 }
 
-}*/
+}

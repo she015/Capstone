@@ -17,19 +17,23 @@ public class UserAccountService {
 	@Autowired
 	UserAccountRepo userAccountRepo;
 	
-	
 	public void save(UserAccount userAccount) {
 		System.out.println(userAccount.getTotalbal());
 		userAccountRepo.save(userAccount);
 	}
 	
-	public List<UserAccount> listAll() {
-        return (List<UserAccount>) userAccountRepo.findAll();
-    }
-
+	/*
+	 * public List<UserAccount> listAll() { return (List<UserAccount>)
+	 * userAccountRepo.findAll(); }
+	 */
    /* public void delete(int id) {
         userAccountRepo.deleteById(id);
     }*/
+
+	public List<UserAccount> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return (List<UserAccount>) userAccountRepo.findByUsername(username);
+	}
     
 	
 }

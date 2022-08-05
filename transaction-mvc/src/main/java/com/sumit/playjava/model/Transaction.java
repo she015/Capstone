@@ -20,23 +20,31 @@ public class Transaction {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer transactionId;
-	private int accountno;
+	private int transactionId;
+	private String accountno;
+	private String username;
 	private int toaccountnumber;
 	private int transferamount;
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date transactiondate;
+	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public int getTransactionId() {
 		return transactionId;
 	}
 	public void setTransactionId(int transactionId) {
 		this.transactionId = transactionId;
 	}
-	public int getAccountno() {
+	public String getAccountno() {
 		return accountno;
 	}
-	public void setAccountno(int accountno) {
+	public void setAccountno(String accountno) {
 		this.accountno = accountno;
 	}
 	public int getToaccountnumber() {
@@ -48,8 +56,8 @@ public class Transaction {
 	public int getTransferamount() {
 		return transferamount;
 	}
-	public void setTransferamount(int transferamount) {
-		this.transferamount = transferamount;
+	public int setTransferamount(int transferamount) {
+		return this.transferamount = transferamount;
 	}
 	public Date getTransactiondate() {
 		return transactiondate;
@@ -60,7 +68,7 @@ public class Transaction {
 	public Transaction() {
 	
 	}
-	public Transaction(int transactionId, int accountno, int toaccountnumber, int transferamount,
+	public Transaction(int transactionId, String accountno, int toaccountnumber, int transferamount,
 			Date transactiondate) {
 		super();
 		this.transactionId = transactionId;
@@ -74,7 +82,5 @@ public class Transaction {
 		return "Transaction [transactionId=" + transactionId + ", accountno=" + accountno + ", toaccountnumber="
 				+ toaccountnumber + ", transferamount=" + transferamount + ", transactiondate=" + transactiondate + "]";
 	}
-	
-	
 	
 }

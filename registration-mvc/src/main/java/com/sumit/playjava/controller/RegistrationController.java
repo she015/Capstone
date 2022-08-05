@@ -24,7 +24,7 @@ public class RegistrationController {
 			@PathVariable("password") String password) {
 
 		User u= new User();
-		u.setId(1);
+		u.getId();
 		u.setUserName(userName);
 		u.setPassword(password);
 		

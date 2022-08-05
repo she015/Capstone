@@ -7,13 +7,9 @@ import org.springframework.stereotype.Repository;
 import com.sumit.playjava.model.UserAccount;
 
 @Repository
-public interface UserAccountRepo extends JpaRepository<UserAccount, Integer>{
+public interface UserAccountRepo extends JpaRepository<UserAccount, String>{
 
-	UserAccount findByAccountno(int accountno);
-
-
-	
-	
+	UserAccount findByAccountno(String accountno);
 
    /* public void saveCustomer(Customer theCustomer);
 

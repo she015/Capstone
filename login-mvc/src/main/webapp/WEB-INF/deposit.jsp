@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>New Transfer</title>
+<title>New Deposit</title>
 </head>
 <style>
 html,
@@ -116,17 +116,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 </style>
 <body>
-	<form:form action="/save-transaction" method="post" modelAttribute="transaction">
+	<form:form action="/save-deposit" method="post" modelAttribute="transaction">
     <div class="container">
-      <h1>New Transfer</h1>
+      <h1>New Deposit</h1>
       <div class="divider"></div>
-    <!--    <h2>Fr: Account No</h2>
-      <form:input id="input-contact" type="text" path="accountno" />-->
-       <h2>To: Account No</h2>
-      <form:input id="input-contact" type="text" path="toaccountnumber" />
-      <h2>Amount</h2>
+      <h2>Account No</h2>
+     <h2>Amount</h2>
       <form:input id="input-amount"  type="text" path="transferamount" />
-      <input id="btn-send" type="submit" value="Send" />
+      <input id="btn-send" type="submit" value="Save" />
     </div>
      </form:form>
 </body>

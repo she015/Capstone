@@ -120,9 +120,7 @@ input[type=number]::-webkit-outer-spin-button {
     <div class="container">
       <h1>New User</h1>
       <div class="divider"></div>
-       <h2>Account No</h2>
-      <form:input id="input-contact" type="text" path="accountno" />
-      <h2>Contact No</h2>
+    	<h2>Contact No</h2>
       <form:input id="input-contact" type="text" path="contactno" />
       <h2>Total Balance</h2>
       <form:input id="input-amount"  type="text" path="totalbal" />
